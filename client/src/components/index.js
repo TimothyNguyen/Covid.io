@@ -1,3 +1,3 @@
-export { default as Chart } from './Charts/Charts';
-export { default as Country } from './Country/Country';
+export { default as Chart } from './Chart/Chart';
+export { default as Country } from './Country/CountryComp';
 export { default as Cards } from './Cards/Cards';

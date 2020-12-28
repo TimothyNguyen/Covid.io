@@ -31,8 +31,6 @@ const fetchDataReducer = (state, action) => {
 }
 
 function App() {
-
-
   const [country, setCountry] = React.useState('');
   const [covidData, dispatchCovidData] = React.useReducer(
     fetchDataReducer,
@@ -46,7 +44,7 @@ function App() {
     if(country) url = `${url}/countries/${country}`;
     try {
         const { data: { confirmed, recovered, deaths, lastUpdate }}  = await axios.get(url);
-        console.log(confirmed);
+        // console.log(confirmed);
         dispatchCovidData({
           type: 'DATA_FETCH_SUCCESS',
           payload: {
@@ -66,14 +64,33 @@ function App() {
     handleFetchCovidData();
   }, [handleFetchCovidData])
 
-
+  const handleCountryChange = async(country) => {
+    dispatchCovidData({ type: 'DATA_FETCH_INIT' });
+    let url = `${api}/countries/${country}`;
+    try {
+        const { data: { confirmed, recovered, deaths, lastUpdate }}  = await axios.get(url);
+        // console.log(confirmed);
+        dispatchCovidData({
+          type: 'DATA_FETCH_SUCCESS',
+          payload: {
+            confirmed,
+            recovered,
+            deaths,
+            updatedTime: lastUpdate
+          }
+        });
+        if(country) setCountry(country);
+    } catch {
+      dispatchCovidData({ type: 'DATA_FETCH_FAILURE' });
+    }
+  }
 
   return (
     <div className={styles.container}>
+        <Country handleCountryChange={handleCountryChange} />
+        <Chart data={covidData.data} country={country} />
         <Cards data={covidData.data} />
-        {/*<CountryPicker handleCountryChange={this.handleCountryChange} />*/}
-        {/*<Chart data={data} country={country} />*/}
-      </div>
+    </div>
   );
 }
 

@@ -13,3 +13,5 @@ app.get('*', (req, res) => {
 app.listen(port, () => {
    console.log('Server is up!');
 });
+
+// heroku create covid19-io — b https://github.com/TimothyNguyen/Covid.io.git

@@ -10,7 +10,7 @@ const Cards = ({ data: {confirmed, recovered, deaths, updatedTime} }) => {
     }
     return (
         <div className={styles.container}>
-            <Grid container spacing={3} justify="center">
+            <Grid container spacing={0} justify="center">
                 <CardComp
                     cardTitle="Infected"
                     number={confirmed.value}

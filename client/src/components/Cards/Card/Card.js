@@ -4,7 +4,7 @@ import styles from './Card.module.css';
 import cx from 'classnames';
 
 const CardComp = ({ className, cardTitle, number, timeUpdated, description }) => (
-    <Grid item xs={12} md={3} component={Card}>
+    <Grid item xs={12} md={3} component={Card} className={cx(styles.card, className)}>
         <Card className = {styles.title}>
             <CardContent>
                 <Typography className={styles.title}>

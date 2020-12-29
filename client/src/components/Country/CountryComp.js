@@ -30,7 +30,7 @@ const fetchCountriesReducer = (state, action) => {
     }
   }
 
-const CountryComp = ( { handleCountryChange} ) => {
+const CountryComp = ( { handleCountryChange } ) => {
     const [countries, dispatchCountries] = React.useReducer(
         fetchCountriesReducer,
         { data: [], isLoading: false, isError: false }
@@ -61,7 +61,6 @@ const CountryComp = ( { handleCountryChange} ) => {
                 <NativeSelect 
                     defaultValue="" 
                     onChange={(event) => handleCountryChange(event.target.value)}>
-                    <option value="">United States</option>
                     {countries.data.map((country, i) => <option key={i} value={country}>{country}</option>)}
                 </NativeSelect>
             </FormControl>

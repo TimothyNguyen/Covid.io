@@ -6,10 +6,4 @@
     "express": "^4.17.1",
     "react-chartjs-2": "^2.11.1"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  }
 }

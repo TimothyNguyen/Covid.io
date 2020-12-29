@@ -1,7 +1,16 @@
 import React from 'react';
 import styles from './App.module.css';
 import { Dashboard } from './components';
-import { createMuiTheme, Switch, FormControlLabel, ThemeProvider } from '@material-ui/core';
+import { 
+  AppBar,
+  Toolbar,
+  Typography,
+  Button,
+  createMuiTheme, 
+  Switch, 
+  FormControlLabel, 
+  ThemeProvider 
+} from '@material-ui/core';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
 function App() {

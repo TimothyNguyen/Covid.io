@@ -82,7 +82,7 @@ const Chart = ({ data: { confirmed, recovered, deaths }, country}) => {
               />
         ) : null
     );
-
+              
     const confirmedChart = (
         covidDailyData.data ? (
           <Line
@@ -101,7 +101,7 @@ const Chart = ({ data: { confirmed, recovered, deaths }, country}) => {
               legend: { display: true },
               title: { 
                 display: true, 
-                text: `Confirmed Cases Worldwide: ${covidDailyData.data[covidDailyData.data.length-1].confirmed}`,
+                text: `Confirmed Cases Worldwide: ${covidDailyData.data.length === 0 ? '' : covidDailyData.data[covidDailyData.data.length-1].confirmed}`,
                 fontSize: 24, 
               },
             }}
@@ -127,7 +127,7 @@ const Chart = ({ data: { confirmed, recovered, deaths }, country}) => {
             legend: { display: true },
             title: { 
               display: true, 
-              text: `Number of Deaths Worldwide: ${covidDailyData.data[covidDailyData.data.length-1].deaths}`,
+              text: `Number of Deaths Worldwide: ${covidDailyData.data.length === 0 ? '' : covidDailyData.data[covidDailyData.data.length-1].deaths}`,
               fontSize: 24, 
             },
           }}
@@ -153,7 +153,7 @@ const Chart = ({ data: { confirmed, recovered, deaths }, country}) => {
           legend: { display: true },
           title: { 
             display: true, 
-            text: `Recovered Cases: ${covidDailyData.data[covidDailyData.data.length-1].recovered}`,
+            text: `Recovered Cases: ${covidDailyData.data.length === 0 ? '' : covidDailyData.data[covidDailyData.data.length-1].recovered}`,
             fontSize: 24, 
           },
         }}
@@ -179,7 +179,6 @@ const Chart = ({ data: { confirmed, recovered, deaths }, country}) => {
                 {barChart}
               </Grid>
             </Grid>
-            {/*console.log(covidDailyData.data[covidDailyData.data.length-1])*/}
         </div>
       );
 }
